@@ -29,6 +29,8 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
 import { CategoryService } from './category.service';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from './product.service';
+import { ProductFilterComponent } from './product-filter/product-filter.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 
 @NgModule({
@@ -46,6 +48,8 @@ import { ProductService } from './product.service';
     LoginComponent,
     NewComponent,
     ProductFormComponent,
+    ProductFilterComponent,
+    ProductCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,7 @@ import { ProductService } from './product.service';
     CustomFormsModule,
     DataTableModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
+      { path: '', component: ProductsComponent },
       { path: 'login', component: LoginComponent },
       { path: 'products', component: ProductsComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent },
@@ -70,7 +74,7 @@ import { ProductService } from './product.service';
         component: ProductFormComponent,
         canActivate: [AuthGuardService,AdminAuthGuardService]
       },
-
+ 
       {
         path:'admin/products/:id',
         component: ProductFormComponent,
