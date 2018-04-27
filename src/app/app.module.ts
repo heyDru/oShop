@@ -31,6 +31,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductService } from './product.service';
 import { ProductFilterComponent } from './product-filter/product-filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { ShoppingCartService } from './shopping-cart.service';
 
 
 @NgModule({
@@ -102,7 +103,8 @@ import { ProductCardComponent } from './product-card/product-card.component';
     AdminAuthGuardService,
     UserService,
     CategoryService,
-    ProductService
+    ProductService,
+    ShoppingCartService
   ],
   bootstrap: [AppComponent]
 })
