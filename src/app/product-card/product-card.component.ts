@@ -8,10 +8,10 @@ import { ShoppingCartService } from '../shopping-cart.service';
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent implements OnInit {
-  
+   
 @Input('product') product:Product;
 @Input('show-actions') showActions=true;
-
+@Input ('shopping-cart') shoppingCart:any;
   constructor(private cartService:ShoppingCartService) { }
 
   ngOnInit() {
@@ -19,18 +19,12 @@ export class ProductCardComponent implements OnInit {
 
 
   addToCart(product) {
-  // let cart = this.cartService.getOrCreateCart();
    this.cartService.addToCart(product);
-
-    let cartId = localStorage.getItem('cartId');
-    if(!cartId){
-      this.cartService.create().then(result=>{
-        localStorage.setItem('cartId',result.key);
-      });
-    }
-    else{
-      
-    }
   }
 
+  getQuantity(){
+    if(!this.shoppingCart) return 0;
+    let item = this.shoppingCart.items[this.product.$key];
+    return item ? item.quantity : 0;
+  }
 }
