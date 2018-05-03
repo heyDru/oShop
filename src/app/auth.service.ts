@@ -36,5 +36,7 @@ export class AuthService {
      return Observable.of(null);
    })
   }
+
+  get userName
 }
 
